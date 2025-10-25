@@ -1,0 +1,419 @@
+/* Monst-like header and button styles */
+
+.sticky-bar {
+  position: relative;
+  z-index: 40;
+  backdrop-filter: saturate(120%) blur(6px);
+  background: rgba(255,255,255,.75);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.sticky-bar.stick {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0,0,0,.05);
+  animation: fadeInDown .6s ease-out both;
+  background: #fff;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translate3d(0,-10px,0); }
+  to { opacity: 1; transform: translate3d(0,0,0); }
+}
+
+/* Nav underline effect */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  padding: .375rem .5rem;
+  line-height: 1.2;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: #3874ff;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .2s ease-out;
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* Dot separators between top-level nav items */
+.nav-item {
+  position: relative;
+}
+.nav-item:not(:last-child)::after {
+  content: "•";
+  opacity: .35;
+  margin-left: .5rem;
+  margin-right: .25rem;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .75rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  background: #3874ff;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(56,116,255,.25);
+  transition: filter .2s ease, transform .2s ease;
+}
+.btn-primary:hover {
+  filter: brightness(.96);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .75rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: 1px solid #3874ff;
+  color: #3874ff;
+  transition: background .2s ease, color .2s ease;
+}
+.btn-outline:hover {
+  background: #3874ff;
+  color: #fff;
+}
+/* Monst Template Port CSS */
+
+/* Custom button styles from template */
+
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1;
+  background: #3b82f6;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+
+.btn-white {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  font-weight: 600;
+  line-height: 1;
+  background: #fff;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+.btn-white:hover {
+  border-color: #1d4ed8;
+  color: #fff;
+  background: #3b82f6;
+}
+
+
+.btn-accent {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  font-weight: 600;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+.btn-accent:hover {
+  border-color: #1d4ed8;
+  color: #fff;
+  background: #3b82f6;
+}
+
+/* Hover effects */
+
+.hover-up-2 {
+  transition: transform 0.2s;
+}
+.hover-up-2:hover {
+  transform: translateY(-2px);
+}
+
+
+.hover-up-5 {
+  transition: transform 0.2s;
+}
+.hover-up-5:hover {
+  transform: translateY(-5px);
+}
+
+/* Jump animation */
+.jump {
+  animation: jump 2s infinite;
+}
+
+@keyframes jump {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Navigation hover effects */
+.nav-link {
+  position: relative;
+}
+
+
+.nav-link::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #3b82f6;
+  transition: all 0.2s;
+  content: '';
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  pointer-events: none;
+}
+
+.group:hover .dropdown-menu {
+  pointer-events: auto;
+}
+
+/* Mobile menu button */
+.mobile-menu-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #fff;
+}
+
+/* Mobile nav items */
+.mobile-nav-item:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #fff;
+}
+
+/* Mobile menu styles */
+li.menu-item-has-children {
+  position: relative;
+}
+
+li.menu-item-has-children .menu-expand {
+  right: 16px;
+  position: absolute;
+  cursor: pointer;
+  z-index: 9;
+  text-align: center;
+  font-size: 20px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748B;
+  font-weight: 300;
+}
+
+li.menu-item-has-children.active .menu-expand {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.mobile-menu .dropdown {
+  display: block;
+}
+
+.mobile-menu .hidden {
+  display: none;
+}
+
+/* Card slider */
+.card-slider {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.card-slider:hover {
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+/* Swiper Navigation Buttons */
+
+.custom_prev,
+.custom_next {
+  width: 3rem;
+  height: 3rem;
+  background: #fff;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.custom_prev:hover,
+.custom_next:hover {
+  background: #3b82f6;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+  background: #d1d5db;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #3b82f6;
+  opacity: 1;
+}
+
+/* Hover animations */
+.hover-up-2:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.hover-up-5:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+/* Container responsive breakpoints */
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1400px;
+}
+
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Font families */
+.font-heading {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Text effects */
+.typewrite {
+  display: inline-block;
+}
+
+/* Background patterns */
+.bg-pattern {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+/* Counter up animation */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count {
+  animation: countUp 0.5s ease-out;
+}
+
+/* Sticky header styles */
+
+.navbar-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #fff;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.navbar-sticky .nav-link {
+  color: #1a202c;
+}
+
+.navbar-sticky .nav-link:hover {
+  color: #3b82f6;
+}
+
+/* Button styles to match template */
+
+/* .btn-primary already defined above. Remove duplicate @apply usage. */
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+
+/* The above button classes are already defined above. Remove duplicate @apply usage. */
