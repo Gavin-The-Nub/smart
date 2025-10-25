@@ -719,3 +719,37 @@ export async function getTutorBookings(tutorId: string): Promise<Booking[]> {
 
   return data || [];
 }
+
+// ============================================================================
+// Filtered Tutors Functions
+// ============================================================================
+
+/**
+ * Get tutors filtered by subject and availability
+ */
+export async function getFilteredTutors(subjectId: string): Promise<
+  {
+    id: string;
+    full_name: string;
+    avatar_url: string | null;
+  }[]
+> {
+  try {
+    const { data, error } = await supabase.functions.invoke(
+      "get-filtered-tutors",
+      {
+        body: { subject_id: subjectId },
+      }
+    );
+
+    if (error) {
+      console.error("Error calling get-filtered-tutors function:", error);
+      return [];
+    }
+
+    return data?.tutors || [];
+  } catch (error) {
+    console.error("Error fetching filtered tutors:", error);
+    return [];
+  }
+}

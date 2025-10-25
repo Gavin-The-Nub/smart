@@ -21,6 +21,8 @@ import NotFound from "./pages/NotFound";
 import FindTutors from "./pages/find-tutors";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import TutorSetup from "./pages/TutorSetup";
+import TestFilteredTutors from "./pages/TestFilteredTutors";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +48,11 @@ const App = () => (
             <Route path="/find-tutors" element={<FindTutors />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/tutor-setup" element={<TutorSetup />} />
+            <Route
+              path="/test-filtered-tutors"
+              element={<TestFilteredTutors />}
+            />
             <Route path="/legal/terms" element={<Terms />} />
             <Route path="/legal/privacy" element={<Privacy />} />
             <Route path="/legal/refund" element={<Refund />} />
