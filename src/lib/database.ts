@@ -56,7 +56,7 @@ export async function createProfile(
   }
 
   // Initialize credits for the new profile
-  if (data && 'id' in data) {
+  if (data && "id" in data) {
     await createCredits({ user_id: (data as Profile).id });
   }
 
@@ -597,13 +597,20 @@ export async function createBooking(
   }
 
   // Reserve credits for the booking
-  if (data && 'credits_required' in data && (data as Booking).credits_required > 0) {
+  if (
+    data &&
+    "credits_required" in data &&
+    (data as Booking).credits_required > 0
+  ) {
     try {
       await reserveCredits((data as Booking).credits_required);
     } catch (error) {
       console.error("Error reserving credits:", error);
       // Rollback booking creation if credit reservation fails
-      await supabase.from("bookings").delete().eq("id", (data as Booking).id);
+      await supabase
+        .from("bookings")
+        .delete()
+        .eq("id", (data as Booking).id);
       return null;
     }
   }
