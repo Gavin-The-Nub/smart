@@ -753,3 +753,31 @@ export async function getFilteredTutors(subjectId: string): Promise<
     return [];
   }
 }
+
+/**
+ * Get true availability for a tutor on a specific date
+ * Returns available time slots after subtracting booked times
+ */
+export async function getTrueAvailability(
+  tutorId: string,
+  date: string
+): Promise<{ start: string; end: string }[]> {
+  try {
+    const { data, error } = await supabase.functions.invoke(
+      "get-true-availability",
+      {
+        body: { tutor_id: tutorId, date },
+      }
+    );
+
+    if (error) {
+      console.error("Error calling get-true-availability function:", error);
+      return [];
+    }
+
+    return data?.availability || [];
+  } catch (error) {
+    console.error("Error fetching true availability:", error);
+    return [];
+  }
+}

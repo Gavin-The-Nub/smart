@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { SubjectSelector } from "@/components/tutors/SubjectSelector";
 import { AvailabilityCalendar } from "@/components/tutors/AvailabilityCalendar";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuthReal as useAuth } from "@/hooks/useAuthReal";
 import { Navigate } from "react-router-dom";
 import { BookOpen, Calendar, CheckCircle } from "lucide-react";
 import type { TutorAvailability } from "@/types/database";

@@ -25,7 +25,7 @@ import {
   deleteAvailability,
 } from "@/lib/database";
 import type { TutorAvailability } from "@/types/database";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuthReal as useAuth } from "@/hooks/useAuthReal";
 import { toast } from "sonner";
 import { Calendar, Clock, Trash2, Plus } from "lucide-react";
 import { format, addDays, isSameDay, parseISO } from "date-fns";

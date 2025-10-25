@@ -23,6 +23,7 @@ import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import TutorSetup from "./pages/TutorSetup";
 import TestFilteredTutors from "./pages/TestFilteredTutors";
+import TestTimeSlotPicker from "./pages/TestTimeSlotPicker";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,10 @@ const App = () => (
             <Route
               path="/test-filtered-tutors"
               element={<TestFilteredTutors />}
+            />
+            <Route
+              path="/test-time-slot-picker"
+              element={<TestTimeSlotPicker />}
             />
             <Route path="/legal/terms" element={<Terms />} />
             <Route path="/legal/privacy" element={<Privacy />} />

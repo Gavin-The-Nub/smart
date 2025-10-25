@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuthReal as useAuth } from "@/hooks/useAuthReal";
 import { useToast } from "@/hooks/use-toast";
 import {
   Calendar,
@@ -32,7 +32,7 @@ import AvailabilityEditor from "@/components/tutors/AvailabilityEditor";
 import CalendarAvailabilityEditor from "@/components/tutors/CalendarAvailabilityEditor";
 import BookingRequestsPanel from "@/components/tutors/BookingRequestsPanel";
 import TutorSelector from "@/components/booking/TutorSelector";
-import TimeSlotPicker from "@/components/booking/TimeSlotPicker";
+import { TimeSlotPicker } from "@/components/booking/TimeSlotPicker";
 
 export default function Dashboard() {
   const { profile, user, signOut } = useAuth();
@@ -212,6 +212,11 @@ export default function Dashboard() {
         return [
           { name: "Dashboard", icon: Home, current: activeTab === "dashboard" },
           {
+            name: "Setup",
+            icon: Settings,
+            current: activeTab === "setup",
+          },
+          {
             name: "Schedule",
             icon: Calendar,
             current: activeTab === "schedule",
@@ -287,6 +292,7 @@ export default function Dashboard() {
                   <>
                     <TimeSlotPicker
                       tutorId={selectedTutor.user_id}
+                      tutorName={selectedTutor.display_name}
                       onSlotSelect={setSelectedSlot}
                       selectedSlot={selectedSlot}
                     />

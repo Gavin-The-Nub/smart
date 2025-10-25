@@ -16,7 +16,7 @@ import {
   removeTutorSubject,
 } from "@/lib/database";
 import type { Subject, TutorSubject } from "@/types/database";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuthReal as useAuth } from "@/hooks/useAuthReal";
 import { toast } from "sonner";
 
 interface SubjectSelectorProps {
